@@ -26,6 +26,10 @@
 
         footer { background: var(--dark); color: white; text-align: center; padding: 50px; margin-top: 50px; }
         
+        /* Навигация */
+        nav a { color: var(--dark); margin: 0 10px; text-decoration: none; }
+        nav a:hover { color: var(--pink); }
+        
         /* Анимации */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .animate { animation: fadeInUp 0.8s ease-out forwards; }
@@ -55,16 +59,16 @@
     <div class="order-form">
         <h2>Оформить заказ</h2>
         <form id="orderForm">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <input type="email" placeholder="Email">
-            <select>
-                <option>Выберите пончик</option>
+            <input type="text" placeholder="Ваше имя" id="nameField" required>
+            <input type="tel" placeholder="Телефон" id="phoneField" required>
+            <input type="email" placeholder="Email" id="emailField">
+            <select id="donutField" required>
+                <option value="">Выберите пончик</option>
                 <option>Шоколадный взрыв</option>
                 <option>Клубничная мечта</option>
                 <option>Карамельный рай</option>
             </select>
-            <textarea placeholder="Адрес доставки и пожелания"></textarea>
+            <textarea placeholder="Адрес доставки и пожелания" id="addressField" required></textarea>
             <button type="submit">Отправить заказ</button>
         </form>
     </div>
@@ -91,7 +95,7 @@
     donuts.forEach((d, i) => {
         container.innerHTML += `
             <div class="card" style="animation-delay: ${i * 0.1}s">
-                <img src="${d.img}" alt="${d.name}">
+                <img src="d.img"alt="{d.img}" alt="d.img"alt="{d.name}">
                 <h3>${d.name}</h3>
                 <p>Цена: ${d.price} ₽</p>
                 <button onclick="alert('Товар ${d.name} добавлен в корзину')">В корзину</button>
@@ -102,15 +106,20 @@
     // Обработка формы
     document.getElementById('orderForm').onsubmit = (e) => {
         e.preventDefault();
-        alert('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.');
+
+        const name = document.getElementById('nameField').value;
+        const phone = document.getElementById('phoneField').value;
+        const email = document.getElementById('emailField').value;
+        const donut = document.getElementById('donutField').value;
+        const address = document.getElementById('addressField').value;
+
+        if (!name || !phone || !donut || !address) {
+            alert('Пожалуйста, заполните все обязательные поля.');
+            return;
+        }
+
+        alert(`Спасибо за заказ, name!Мысвяжемсясвамивближайшеевремяпотелефону{name}! Мы свяжемся с вами в ближайшее время по телефонуname!Мысвяжемсясвамивближайшеевремяпотелефону{phone}.`);
     };
 </script>
-
-<!-- Для достижения 800 строк вы можете:
-     1. Добавить еще 20 объектов в массив donuts.
-     2. Добавить CSS-стили для каждого элемента (цвета, шрифты, отступы).
-     3. Расписать каждый пункт "О нас" на отдельные блоки текста.
-     4. Добавить детальную валидацию формы в JS.
--->
 </body>
 </html>
