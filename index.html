@@ -95,7 +95,7 @@
     donuts.forEach((d, i) => {
         container.innerHTML += `
             <div class="card" style="animation-delay: ${i * 0.1}s">
-                <img alt="${d.name}" id="01a0a5d5-3458-7e31-bce1-687345fb98cc">
+                <img src="${d.img}" alt="${d.name}" id="01a0a5d5-3458-7e31-bce1-687345fb98cc">
                 <h3>${d.name}</h3>
                 <p>Цена: ${d.price} ₽</p>
                 <button onclick="alert('Товар ${d.name} добавлен в корзину')">В корзину</button>
