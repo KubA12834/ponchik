@@ -81,13 +81,13 @@
 <script>
     // База товаров (здесь можно легко расширить список до 20-30 позиций)
     const donuts = [
-        { name: "Шоколадный взрыв", price: 150, img: "https://cdn.lifehacker.ru/wp-content/uploads/2024/03/shutterstock_686764621-1_1710757379-e1710757423318.jpg" },
-        { name: "Клубничная мечта", price: 170, img: "https://images.unsplash.com/photo-1612203852033-866c1b3f7d88?w=500" },
-        { name: "Классика", price: 120, img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500" },
-        { name: "Карамельный", price: 180, img: "https://images.unsplash.com/photo-1627308595229-7833054e0c3d?w=500" },
-        { name: "Фисташковый", price: 190, img: "https://images.unsplash.com/photo-1599785209796-7860004944d1?w=500" },
-        { name: "Ягодный бум", price: 160, img: "https://images.unsplash.com/photo-1605336066129-c89b4f2c00c7?w=500" }
-    ];
+    { name: "Пончик с кремом", price: 150, img: "https://images.unsplash.com/photo-1612203852033-866c1b3f7d88?w=500" },
+    { name: "Пончик с джемом", price: 170, img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500" },
+    { name: "Пончик с орехами", price: 120, img: "https://images.unsplash.com/photo-1627308595229-7833054e0c3d?w=500" },
+    { name: "Пончик с карамелью", price: 180, img: "https://images.unsplash.com/photo-1599785209796-7860004944d1?w=500" },
+    { name: "Пончик с фисташками", price: 190, img: "https://images.unsplash.com/photo-1605336066129-c89b4f2c00c7?w=500" },
+    { name: "Пончик с ягодами", price: 160, img: "https://cdn.lifehacker.ru/wp-content/uploads/2024/03/shutterstock_686764621-1_1710757379-e1710757423318.jpg" }
+];
 
     const container = document.getElementById('product-container');
     
@@ -95,7 +95,7 @@
     donuts.forEach((d, i) => {
         container.innerHTML += `
             <div class="card" style="animation-delay: ${i * 0.1}s">
-                <img src="d.img"alt="{d.img}" alt="d.img"alt="{d.name}">
+                <img alt="${d.name}" id="01a0a5d5-3458-7e31-bce1-687345fb98cc">
                 <h3>${d.name}</h3>
                 <p>Цена: ${d.price} ₽</p>
                 <button onclick="alert('Товар ${d.name} добавлен в корзину')">В корзину</button>
